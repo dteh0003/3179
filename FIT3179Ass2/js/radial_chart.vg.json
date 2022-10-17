@@ -1,0 +1,49 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "A simple radial chart with embedded data.",
+    "width": 800,
+    "height": 600,
+    "background":"grey",
+    "title":"Most FIFA World Cup Championships",
+    "data": {
+      "url": "https://raw.githubusercontent.com/dteh0003/3179/main/FIT3179Ass2/data/FIFAWorldCupWinners.csv"
+    },
+    "layer": [
+      {"mark": {"type": "arc", "innerRadius": 30, "stroke": "#ffffff"}},
+      {
+        "mark": {"type": "text", "radiusOffset": 10},
+        "encoding": {
+          "text": {
+            "field": "Number of Wins",
+            "type": "quantitative"
+          },
+          "fill": {
+            "value": "lightgreen"
+          },
+          "strokeWidth":{"value":1}
+        }
+      }
+    ],
+    "encoding": {
+      "theta": {"field": "Number of Wins", "type": "quantitative", "stack": true},
+      "radius": {
+        "field": "Number of Wins",
+        "scale": {"type": "sqrt", "zero": true, "rangeMin": 30}
+      },
+      "color": {"field": "Winners", "type": "nominal"},
+      "tooltip": [
+        {"field": "Winners"},
+        {"field": "Number of Wins"},
+        {"field": "Year(s)"}
+      ],
+      "strokeWidth": {"value": 2},
+      "order": {"field": "Number of Wins", "sort": "ascending"}
+    },
+    "config": {"text": {"fontWeight": "bold", "color": "black"},
+    "title":{
+      "font": "monospace",
+      "fontSize": 20,
+      "color":"whitesmoke"
+  },
+  "axis": {"labelColor":"white","titleColor":"lightgreen"}}
+  }

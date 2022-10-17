@@ -1,0 +1,144 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "values": [
+        {"label": "1930", "amount": 434000},
+        {"label": "1934", "amount": -39000},
+        {"label": "1938", "amount": 88000},
+        {"label": "1950", "amount": 854000},
+        {"label": "1954", "amount": -394000},
+        {"label": "1958", "amount": -75000},
+        {"label": "1962", "amount": -92000},
+        {"label": "1966", "amount": 838677},
+        {"label": "1970", "amount": 59298},
+        {"label": "1974", "amount": 100047},
+        {"label": "1978", "amount": -163807},
+        {"label": "1982", "amount": 246062},
+        {"label": "1986", "amount": 551154},
+        {"label": "1990", "amount": 119917},
+        {"label": "1994", "amount": 1041219},
+        {"label": "1998", "amount": -709333},
+        {"label": "2002", "amount": -134630},
+        {"label": "2006", "amount": 642396},
+        {"label": "2010", "amount": -1199016},
+        {"label": "1914", "amount": 1273466},
+        {"label": "2018", "amount": -409682}
+      ]
+    },
+    "background":"grey",
+    "title":"Attendance Trend ",
+    "width": 900,
+    "height": 600,
+    "transform": [
+      {"window": [{"op": "sum", "field": "amount", "as": "sum"}]},
+      {"window": [{"op": "lead", "field": "label", "as": "lead"}]},
+      {
+        "calculate": "datum.lead === null ? datum.label : datum.lead",
+        "as": "lead"
+      },
+      {
+        "calculate": "datum.label === 'End' ? 0 : datum.sum - datum.amount",
+        "as": "previous_sum"
+      },
+      {
+        "calculate": "datum.label === 'End' ? datum.sum : datum.amount",
+        "as": "amount"
+      },
+      {
+        "calculate": "(datum.label !== 'Begin' && datum.label !== 'End' && datum.amount > 0 ? '+' : '') + datum.amount",
+        "as": "text_amount"
+      },
+      {"calculate": "(datum.sum + datum.previous_sum) / 2", "as": "center"},
+      {
+        "calculate": "datum.sum < datum.previous_sum ? datum.sum : ''",
+        "as": "sum_dec"
+      },
+      {
+        "calculate": "datum.sum > datum.previous_sum ? datum.sum : ''",
+        "as": "sum_inc"
+      }
+    ],
+    "encoding": {
+      "x": {
+        "field": "label",
+        "type": "ordinal",
+        "sort": null,
+        "axis": {"labelAngle": 0, "title": "Years"}
+      }
+    },
+    "layer": [
+      {
+        "mark": {"type": "bar", "size": 45},
+        "encoding": {
+          "y": {
+            "field": "previous_sum",
+            "type": "quantitative",
+            "title": "Number of Attendance"
+          },
+          "y2": {"field": "sum"},
+          "color": {
+            "condition": [
+              {
+                "test": "datum.label === 'Begin' || datum.label === 'End'",
+                "value": "#f7e0b6"
+              },
+              {"test": "datum.sum < datum.previous_sum", "value": "#f78a64"}
+            ],
+            "value": "#93c4aa"
+          }
+        }
+      },
+      {
+        "mark": {
+          "type": "rule",
+          "color": "#404040",
+          "opacity": 1,
+          "strokeWidth": 2,
+          "xOffset": -22.5,
+          "x2Offset": 22.5
+        },
+        "encoding": {
+          "x2": {"field": "lead"},
+          "y": {"field": "sum", "type": "quantitative"}
+        }
+      },
+      {
+        "mark": {"type": "text", "dy": -4, "baseline": "bottom"},
+        "encoding": {
+          "y": {"field": "sum_inc", "type": "quantitative"},
+          "text": {"field": "sum_inc", "type": "nominal"}
+        }
+      },
+      {
+        "mark": {"type": "text", "dy": 4, "baseline": "top"},
+        "encoding": {
+          "y": {"field": "sum_dec", "type": "quantitative"},
+          "text": {"field": "sum_dec", "type": "nominal"}
+        }
+      },
+      {
+        "mark": {"type": "text", "fontWeight": "bold", "baseline": "middle"},
+        "encoding": {
+          "y": {"field": "center", "type": "quantitative"},
+          "text": {"field": "text_amount", "type": "nominal"},
+          "color": {
+            "condition": [
+              {
+                "test": "datum.label === 'Begin' || datum.label === 'End'",
+                "value": "#725a30"
+              }
+            ],
+            "value": "white"
+          }
+        }
+      }
+    ],
+    "config": {"text": {"fontWeight": "bold", "color": "black"},
+    "title":{
+      "font": "courier new",
+      "fontSize": 20,
+      "color":"whitesmoke"
+  },
+  "axis": {"labelColor":"white","titleColor":"lightgreen"}}
+  }
+  
