@@ -11,35 +11,165 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
 
     <script src="vega_lite_vis.js"></script>
-    <link rel="stylesheet" href="css/styles.css">
 
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <style>
-        h1 {
-            color: blue;
-            text-align: center;
-        }
     </style>
-    <title id="c-align">FIT3179 Assignment 2</title>
+    <title>FIT3179 Assignment 2</title>
 </head>
 
-<body>
-    <h1 id = "c-align">FIFA World Cup</h1>
-    <h2 id = "c-align">FIFA World Cup Host and its Total Attendance (1930 - 2018)</h2>
-    <div id="choropleth_map"></div>
-    <div id="lollipop_chart"></div>
-    <script>        
-        var vg_1 = "js/empty_map.vg.json";
-        vegaEmbed("#choropleth_map", vg_1).then(function (result) {
-            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-        }).catch(console.error);
-    </script>
+<body style="background-color:rgb(139, 201, 123)",fonts="">
+    <div class="header">
+        <h1>🌍⚽️ FIFA World Cup ⚽️🌎</h1>
+        <h3>By: Derric Teh Zhi En</h3>
+    </div>
+
+    <div class="map_box">
+        <div class=pure-u-1-1>
+            <div id="choropleth_map"></div>
+            <div class="map_desc">
+                <p>Above map shows the <span style="color: rgb(174, 31, 31)"><b>Total Goals</b></span> scored by all
+                    countries during the year <span style="color: rgb(174, 31, 31)"><b>1930</b></span> to <span
+                        style="color: rgb(174, 31, 31)"><b>2018</b></span>.</p>
+                <p><span style="color: rgb(174, 31, 31)"><b>Majority</b></span> of the countries has scored less than
+                    <span style="color: rgb(174, 31, 31)"><b>10 Goals</b></span>
+                </p>
+                <p><span style="color: rgb(234, 114, 23)"><b>Brazil</b></span> and <span
+                        style="color: rgb(234, 114, 23)"><b>Germany</b></span> has scored
+                    <span style="color: rgb(174, 31, 31)"><b>228</b></span> and <span
+                        style="color: rgb(174, 31, 31)"><b>226</b></span> goals respectively.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-container">
+        <div class="item3";>
+            <div id="waterfall_chart"></div>
+        </div>
+
+        <div class="item4" style="background-color:rgb(116, 167, 103);border-radius: 100px;">
+            <div id="map_desc">
+                <p>The stadium with the <span style="color: rgb(174, 31, 31)"><b>Highest</b></span> number of attendance
+                    was <span style="color: rgb(174, 31, 31)"><b>3568567</b></span>
+                    that was held in <span style="color: rgb(186, 93, 22)"><b>United States of America</b></span> in the
+                    year
+                    <span style="color: rgb(174, 31, 31)"><b>1994</b></span> while the stadium with the <span
+                        style="color: rgb(174, 31, 31)"><b>Lowest</b></span> number of attendance was <span
+                        style="color: rgb(174, 31, 31)"><b>395000
+                        </b></span>
+                    that was held in <span style="color: rgb(186, 93, 22)"><b>Italy</b></span> in the year
+                    <span style="color: rgb(174, 31, 31)"><b>1934</b></span>
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="grid-container2">
+        <div class="item3" style="background-color:rgb(116, 167, 103); border-radius: 100px;">
+            <div id="map_desc">
+                <p>The player with the <span style="color: rgb(174, 31, 31)"><b>highest</b></span> total <span
+                        style="color: rgb(174, 31, 31)"><b>FIFA Goals</b></span> is
+                    <span style="color: rgb(186, 93, 22)"><b>Miroslav Klose</b></span> which represents <span
+                        style="color: rgb(186, 93, 22)"><b>Germany</b></span> and has a
+                    total of <span style="color: rgb(174, 31, 31)"><b>16</b></span> FIFA World Cup Goals
+                </p>
+            </div>
+
+        </div>
+
+        <div class="item4" ;>
+            <div id="lollipop_chart"></div>
+        </div>
+    </div>
+
+    <div class = "grid-container">
+        <div class = "item3" >
+            <div id = "radial_chart"></div>
+        </div>
+        <div class = "item4" style="background-color:rgb(116, 167, 103); border-radius: 100px;">
+            <div id="map_desc">
+            <p><span style="color: rgb(186, 93, 22)"><b>Brazil</b></span> has the most championships out of all the countries with a 
+                total of <span style="color: rgb(174, 31, 31)"><b>5</b></span> trophies. </p>
+        </div>
+    </div>
+
+    </div>
+
+    <div>
+        <h2>Top 3 Player's Statistic Based on Personal Preference</h2>
+    </div>
+
+    <div class="grid-container4">
+        <div class = "item2" >
+            <a href="https://imgbb.com/"><img src="https://i.ibb.co/GQH7dS3/Mbappe-PNG-Isolated-File.png" alt="Mbappe-PNG-Isolated-File" border="0"></a><br /><a target='_blank' href='https://statewideinventory.org/mercedes-0-60-times'></a><br />        
+        </div>
+
+        <div class = "item3" >
+            <a href="https://imgbb.com/"><img src="https://i.ibb.co/47BXY29/King-Of-Football-Lionel-Messi-Transparent.png" alt="King-Of-Football-Lionel-Messi-Transparent" border="0"></a><br /><a target='_blank' href='https://statewideinventory.org/mercedes-0-60-times'></a><br />        
+        </div>
+        <div class = "item4" >
+            <a href="https://imgbb.com/"><img src="https://i.ibb.co/kyrdy1g/Untitled.png" alt="Untitled" border="0"></a><br /><a target='_blank' href='https://statewideinventory.org/mercedes-0-60-times'></a><br />        
+        </div>
     
-    <h3 id = "c-align">Total Goals by Country</h3>
-    <script>
-        var vg_2 = "js/lollipop.vg.json";
-        vegaEmbed("#lollipop_chart", vg_2).then(function (result) {
-            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-        }).catch(console.error);
-    </script>
+    </div>
+
+    <div class="grid-container3">
+
+        <div class="item2" ; >
+            <div id="radar_mbappe"></div>
+        </div>
+        <div class="item3";>
+            <div id="radar_messi"></div>
+        </div>
+        <div class="item4" ;>
+            <div id="radar_ronaldo"></div>
+        </div>
+    </div>
+
+
+    
+        <script>
+            var vg_1 = "js/map_goals.vg.json";
+            vegaEmbed("#choropleth_map", vg_1, { "actions": false }).then(function (result) {
+                // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            }).catch(console.error);
+
+            var vg_2 = "js/lollipop.vg.json";
+            vegaEmbed("#lollipop_chart", vg_2, { "actions": false }).then(function (result) {
+                // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            }).catch(console.error);
+
+            var vg_3 = "js/waterfall_chart.vg.json";
+            vegaEmbed("#waterfall_chart", vg_3, { "actions": false }).then(function (result) {
+                // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            }).catch(console.error);
+
+
+            var vg_4 = "js/radial_chart.vg.json";
+            vegaEmbed("#radial_chart", vg_4, { "actions": false }).then(function (result) {
+                // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            }).catch(console.error);
+
+            var vg_5 = "js/radar_mbappe.vg.json";
+            vegaEmbed("#radar_mbappe", vg_5, { "actions": false }).then(function (result) {
+                // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            }).catch(console.error);
+
+            var vg_6 = "js/radar_messi.vg.json";
+            vegaEmbed("#radar_messi", vg_6, { "actions": false }).then(function (result) {
+                // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            }).catch(console.error);
+
+            var vg_7 = "js/radar_ronaldo.vg.json";
+            vegaEmbed("#radar_ronaldo", vg_7, { "actions": false }).then(function (result) {
+                // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            }).catch(console.error);
+
+        </script>
+
 </body>
+
 </html>
