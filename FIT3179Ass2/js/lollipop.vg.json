@@ -1,57 +1,158 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 800,
-    "height": 300,
+    "height": 500,
+    "title": "Players with More than 10 Goals",
+    "background":"grey",
     "data": {
-        "url": "https://raw.githubusercontent.com/dteh0003/3179/main/FIT3179Ass2/data/FIFAWorldCupGoals.csv"
+        "values": [
+            {
+                "Player": "Miroslav Klose",
+                "Goals": 16,
+                "Country": "Germany",
+                "img": "https://i.imgur.com/OSfIuQQ.png"
+            },
+            {
+                "Player": "Ronaldo",
+                "Goals": 15,
+                "Country": "Brazil",
+                "img": "https://i.imgur.com/VOIgKfz.png"
+            },
+            {
+                "Player": "Gerd Muller",
+                "Goals": 14,
+                "Country": "Germany",
+                "img": "https://i.imgur.com/cRzs1dX.png"
+            },
+            {
+                "Player": "Just Fontain",
+                "Goals": 13,
+                "Country": "France",
+                "img": "https://i.imgur.com/8dpgQH5.png"
+            },
+            {
+                "Player": "Pele",
+                "Goals": 12,
+                "Country": "Brazil",
+                "img": "https://i.imgur.com/aIPRg4r.png"
+            },
+            {
+                "Player": "Jurgen Klinsmann",
+                "Goals": 12,
+                "Country": "Germany",
+                "img": "https://i.imgur.com/DXfdPfj.png"
+            },
+            {
+                "Player": "Sandor Kocsis",
+                "Goals": 12,
+                "Country": "Hungary",
+                "img": "https://i.imgur.com/C3zoHUU.png"
+            }
+        ]
     },
     "layer": [
         {
-            "description": "Lollipop Stick",
             "mark": {
                 "type": "bar",
                 "tooltip": true
             },
             "encoding": {
                 "x": {
-                    "field": "Country",
-                    "type": "nominal"
-                },
-                "y": {
-                    "field": "Total Goals",
+                    "field": "Goals",
                     "type": "quantitative"
                 },
+                "y": {
+                    "field": "Player",
+                    "type": "ordinal"
+                },
                 "color": {
-                    "value": "#0bfc03"
+                    "value": "lightgreen"
                 },
                 "size": {
-                    "value": 5
+                    "value": 15
+                },
+                "tooltip": [
+                    {
+                        "field": "Player",
+                        "type": "nominal"
+                    },
+                    {
+                        "field": "Goals",
+                        "type": "nominal"
+                    },
+                    {
+                        "field": "Country",
+                        "type": "nominal"
+                    }
+                ]
+            }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "baseline": "bottom",
+                "dy": -30
+            },
+            "encoding": {
+                "color": {
+                    "value": "Black"
+                },
+                "x": {
+                    "field": "Goals",
+                    "type": "quantitative",
+                    "title":"Number of Goals"
+                },
+                "y": {
+                    "field": "Player",
+                    "type": "ordinal"
+                },
+                "text": {
+                    "field": "Goals"
                 }
             }
         },
         {
-            "description": "Lollipop",
             "mark": {
-                "type": "point",
-                "tooltip": true,
-                "filled": true
+                "type": "image",
+                "width": 70,
+                "height": 70
             },
             "encoding": {
-                "color": {
-                    "value": "#086905"
-                },
                 "x": {
-                    "field": "Country",
-                    "type": "nominal"
-                },
-                "y": {
-                    "field": "Total Goals",
+                    "field": "Goals",
                     "type": "quantitative"
                 },
-                "size": {
-                    "value": 80
-                }
+                "y": {
+                    "field": "Player",
+                    "type": "ordinal"
+                },
+                "url": {
+                    "field": "img",
+                    "type": "nominal"
+                },
+                "tooltip": [
+                    {
+                        "field": "Player",
+                        "type": "nominal"
+                    },
+                    {
+                        "field": "Goals",
+                        "type": "nominal"
+                    },
+                    {
+                        "field": "Country",
+                        "type": "nominal"
+                    }
+                ]
             }
         }
-    ]
+    ],
+    "config": {
+        "title": {
+            "font":"monospace",
+            "fontSize": 20,
+            "color":"whitesmoke"
+        },
+        "axis": {"labelColor":"white","titleColor":"lightgreen"}
+    }
 }
