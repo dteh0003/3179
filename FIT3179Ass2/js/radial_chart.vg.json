@@ -18,7 +18,7 @@
             "type": "quantitative"
           },
           "fill": {
-            "value": "lightgreen"
+            "value": "white"
           },
           "strokeWidth":{"value":1}
         }
