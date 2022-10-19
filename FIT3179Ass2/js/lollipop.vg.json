@@ -95,7 +95,7 @@
             },
             "encoding": {
                 "color": {
-                    "value": "Black"
+                    "value": "black"
                 },
                 "x": {
                     "field": "Goals",
@@ -110,6 +110,7 @@
                     "field": "Goals"
                 }
             }
+            
         },
         {
             "mark": {
