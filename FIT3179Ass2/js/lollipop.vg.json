@@ -153,6 +153,6 @@
             "fontSize": 20,
             "color":"whitesmoke"
         },
-        "axis": {"labelColor":"white","titleColor":"lightgreen"}
+        "axis": {"labelColor":"white","titleColor":"white"}
     }
 }
